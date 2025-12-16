@@ -293,7 +293,7 @@
         /* ------------------------------------------- */
         
         .how-it-works {
-            padding: 0; /* Removing padding here, adding it to inner sections */
+            padding: 0;
             background: white;
             overflow: hidden;
         }
@@ -312,28 +312,22 @@
             max-width: 100%;
             /* Animation Setup */
             opacity: 0; 
-            transform: translateY(60px); /* Move down 60px initially */
-            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); /* Smooth eased transition */
+            transform: translateY(60px); 
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); 
         }
 
-        /* Alternating Backgrounds */
         .feature-row:nth-child(even) {
-            background: #F8F7FF; /* Very light purple/grey */
+            background: #F8F7FF; 
+            flex-direction: row-reverse;
         }
         
         .feature-row:nth-child(odd) {
             background: #FFFFFF;
         }
 
-        /* Animation Trigger Class */
         .feature-row.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* Alternating layout */
-        .feature-row:nth-child(even) {
-            flex-direction: row-reverse;
         }
 
         .feature-container {
@@ -345,14 +339,12 @@
             gap: 4rem;
         }
 
-        /* Text Side */
         .feature-text-block {
             flex: 1;
             padding: 2rem;
             position: relative;
         }
 
-        /* Big Number Design */
         .feature-number-bg {
             font-family: 'Playfair Display', serif;
             font-size: 8rem;
@@ -369,7 +361,6 @@
             user-select: none;
         }
         
-        /* Adjust for RTL */
         body.rtl .feature-number-bg {
             left: auto;
             right: 0;
@@ -430,21 +421,27 @@
         /* 3D CAROUSEL STYLES */
         .feature-visual-block {
             flex: 1;
-            height: 550px;
+            height: 600px; /* Increased height to accommodate dots */
             position: relative;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            perspective: 1000px; /* Creates the 3D space */
+            perspective: 1000px;
         }
 
-        .carousel-container {
+        .carousel-wrapper {
             width: 100%;
-            height: 100%;
+            height: 520px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: grab;
+        }
+        
+        .carousel-wrapper:active {
+            cursor: grabbing;
         }
 
         .carousel-item {
@@ -485,7 +482,6 @@
         }
 
         /* Carousel States */
-        /* 1. The Active Card (Center, Big, Opaque) */
         .carousel-item.active {
             transform: translateX(0) scale(1.1);
             opacity: 1;
@@ -494,7 +490,6 @@
             border-color: var(--iris-purple);
         }
 
-        /* 2. The Next Card (Right, Small, Faded) */
         .carousel-item.next {
             transform: translateX(180px) scale(0.85);
             opacity: 0.5;
@@ -502,7 +497,6 @@
             filter: blur(1px);
         }
 
-        /* 3. The Prev Card (Left, Small, Faded) */
         .carousel-item.prev {
             transform: translateX(-180px) scale(0.85);
             opacity: 0.5;
@@ -510,18 +504,42 @@
             filter: blur(1px);
         }
         
-        /* 4. Hidden Cards (Behind) */
         .carousel-item.hidden {
             transform: translateX(0) scale(0.5);
             opacity: 0;
             z-index: 0;
         }
 
-        /* RTL Adjustments for Carousel */
         body.rtl .carousel-item.next { transform: translateX(-180px) scale(0.85); }
         body.rtl .carousel-item.prev { transform: translateX(180px) scale(0.85); }
 
-        /* ------------------------------------------- */
+        /* DOTS NAVIGATION */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+            z-index: 20;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--iris-purple);
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(107, 77, 230, 0.4);
+        }
+        
+        .dot:hover {
+            background: var(--iris-light);
+        }
 
         /* Use Cases Section */
         .use-cases {
@@ -543,7 +561,6 @@
             text-align: center;
             box-shadow: 0 10px 40px rgba(107, 77, 230, 0.1);
             transition: all 0.3s ease;
-            /* Animation setup */
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -642,7 +659,6 @@
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
             
-            /* How it works responsive */
             .feature-row {
                 padding: 60px 5%;
             }
@@ -655,13 +671,13 @@
             }
             
             .feature-text-block {
-                order: 1; /* Text first on mobile */
+                order: 1; 
                 padding: 0;
             }
             
             .feature-visual-block {
-                order: 2; /* Visual second */
-                height: 400px; /* Smaller on mobile */
+                order: 2;
+                height: 480px; 
                 width: 100%;
             }
             
@@ -680,7 +696,6 @@
                 height: 400px;
             }
             
-            /* Adjust translateX for smaller screens */
             .carousel-item.next { transform: translateX(100px) scale(0.85); }
             .carousel-item.prev { transform: translateX(-100px) scale(0.85); }
             body.rtl .carousel-item.next { transform: translateX(-100px) scale(0.85); }
@@ -696,7 +711,6 @@
             display: block;
         }
 
-        /* Basic Fade In for Home */
         .fade-in {
             animation: fadeIn 0.8s ease-in;
         }
@@ -814,25 +828,26 @@
                             <li data-en="Secure biometric authentication" data-ar="مصادقة بيومترية آمنة">Secure biometric authentication</li>
                         </ul>
                     </div>
-                    <div class="feature-visual-block" id="visual-block-1">
-                        <div class="carousel-container" data-carousel-id="1">
+                    <div class="feature-visual-block">
+                        <div class="carousel-wrapper" data-carousel-id="1">
                             <div class="carousel-item active">
                                 <div class="carousel-item-placeholder"><span>👋</span><p>Welcome</p></div>
-                                <img src="screenshots/basic/onboarding.png" onerror="this.style.display='none'" alt="Main">
+                                <img src="screenshots/basic/onboarding.png" onerror="this.style.display='none'">
                             </div>
                             <div class="carousel-item next">
                                 <div class="carousel-item-placeholder"><span>🔐</span><p>Auth</p></div>
-                                <img src="screenshots/basic/auth.png" onerror="this.style.display='none'" alt="Next">
+                                <img src="screenshots/basic/auth.png" onerror="this.style.display='none'">
                             </div>
                             <div class="carousel-item hidden">
                                 <div class="carousel-item-placeholder"><span>🌐</span><p>Lang</p></div>
-                                <img src="screenshots/basic/language.png" onerror="this.style.display='none'" alt="Hidden">
+                                <img src="screenshots/basic/language.png" onerror="this.style.display='none'">
                             </div>
                             <div class="carousel-item prev">
                                 <div class="carousel-item-placeholder"><span>✓</span><p>Age</p></div>
-                                <img src="screenshots/basic/age.png" onerror="this.style.display='none'" alt="Prev">
+                                <img src="screenshots/basic/age.png" onerror="this.style.display='none'">
                             </div>
                         </div>
+                        <div class="carousel-dots" id="dots-1"></div>
                     </div>
                 </div>
             </div>
@@ -852,8 +867,8 @@
                             <li data-en="Personality-aligned goal setting" data-ar="تحديد أهداف متوافق مع الشخصية">Personality-aligned goal setting</li>
                         </ul>
                     </div>
-                    <div class="feature-visual-block" id="visual-block-2">
-                         <div class="carousel-container" data-carousel-id="2">
+                    <div class="feature-visual-block">
+                         <div class="carousel-wrapper" data-carousel-id="2">
                             <div class="carousel-item active">
                                 <div class="carousel-item-placeholder"><span>📊</span><p>Analysis</p></div>
                                 <img src="screenshots/personality/analysis.png" onerror="this.style.display='none'">
@@ -871,6 +886,7 @@
                                 <img src="screenshots/personality/question.png" onerror="this.style.display='none'">
                             </div>
                         </div>
+                        <div class="carousel-dots" id="dots-2"></div>
                     </div>
                 </div>
             </div>
@@ -890,8 +906,8 @@
                             <li data-en="Adaptive daily pathways" data-ar="مسارات يومية تكيفية">Adaptive daily pathways</li>
                         </ul>
                     </div>
-                    <div class="feature-visual-block" id="visual-block-3">
-                         <div class="carousel-container" data-carousel-id="3">
+                    <div class="feature-visual-block">
+                         <div class="carousel-wrapper" data-carousel-id="3">
                             <div class="carousel-item active">
                                 <div class="carousel-item-placeholder"><span>🌳</span><p>Tree</p></div>
                                 <img src="screenshots/core/tree.png" onerror="this.style.display='none'">
@@ -909,6 +925,7 @@
                                 <img src="screenshots/core/map.png" onerror="this.style.display='none'">
                             </div>
                         </div>
+                        <div class="carousel-dots" id="dots-3"></div>
                     </div>
                 </div>
             </div>
@@ -928,8 +945,8 @@
                             <li data-en="Privacy & Security controls" data-ar="ضوابط الخصوصية والأمان">Privacy & Security controls</li>
                         </ul>
                     </div>
-                    <div class="feature-visual-block" id="visual-block-4">
-                        <div class="carousel-container" data-carousel-id="4">
+                    <div class="feature-visual-block">
+                        <div class="carousel-wrapper" data-carousel-id="4">
                             <div class="carousel-item active">
                                 <div class="carousel-item-placeholder"><span>👤</span><p>Profile</p></div>
                                 <img src="screenshots/profile/profile.png" onerror="this.style.display='none'">
@@ -947,6 +964,7 @@
                                 <img src="screenshots/profile/settings.png" onerror="this.style.display='none'">
                             </div>
                         </div>
+                        <div class="carousel-dots" id="dots-4"></div>
                     </div>
                 </div>
             </div>
@@ -981,7 +999,6 @@
             ar: 'videos/iris-pitch-arabic.mp4'
         };
 
-        // Initialize video source
         function updateVideoSource() {
             const videoSource = document.getElementById('videoSource');
             const pitchVideo = document.getElementById('pitchVideo');
@@ -989,7 +1006,6 @@
             pitchVideo.load();
         }
 
-        // Play video function
         function playVideo() {
             const videoContainer = document.getElementById('videoContainer');
             const playButton = videoContainer.querySelector('.play-button');
@@ -1005,7 +1021,6 @@
             pitchVideo.play();
         }
 
-        // Smooth scroll on navigation
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -1015,7 +1030,6 @@
             }
         });
 
-        // Show section function
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => {
@@ -1030,17 +1044,14 @@
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.remove('active');
             
-            // Re-trigger observer whenever section changes to ensure animations fire
             setTimeout(initScrollObserver, 100);
         }
 
-        // Toggle mobile menu
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
 
-        // Language toggle function
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'ar' : 'en';
             const body = document.body;
@@ -1075,83 +1086,141 @@
             });
         }
 
-        // --- NEW: Scroll Animation Logic (Observer) ---
+        // --- SCROLL ANIMATION OBSERVER ---
         let observer;
-
         function initScrollObserver() {
-            // Disconnect old observer if exists
             if (observer) observer.disconnect();
-
             const observerOptions = {
-                threshold: 0.15, // Trigger when 15% is visible
+                threshold: 0.15, 
                 rootMargin: '0px'
             };
-
             observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        
-                        // Also trigger simple fade-ins
-                        if(entry.target.classList.contains('use-case-card')) {
-                            entry.target.classList.add('visible');
-                        }
                     }
                 });
             }, observerOptions);
-
-            // Observe Feature Rows (The advanced animation)
-            document.querySelectorAll('.feature-row').forEach(el => observer.observe(el));
-            // Observe Use Case Cards
-            document.querySelectorAll('.use-case-card').forEach(el => observer.observe(el));
+            document.querySelectorAll('.feature-row, .use-case-card').forEach(el => observer.observe(el));
         }
 
-        // --- NEW: 3D Auto-Rotating Carousel Logic ---
+        // --- CAROUSEL LOGIC WITH VARIABLE SPEED, DOTS & SWIPE ---
         function initCarousels() {
-            const containers = document.querySelectorAll('.carousel-container');
+            const containers = document.querySelectorAll('.carousel-wrapper');
+            const FAST_INTERVAL = 3500; // 6.7 seconds
+            const SLOW_INTERVAL = 6700; // 10.5 seconds
 
             containers.forEach(container => {
                 const items = Array.from(container.querySelectorAll('.carousel-item'));
-                // Assuming 4 items per carousel
-                // Indices: 0, 1, 2, 3
+                const carouselId = container.getAttribute('data-carousel-id');
+                const dotsContainer = document.getElementById(`dots-${carouselId}`);
+                let interval;
+                let activeIndex = 0;
+                let isInteracting = false;
                 
-                // Helper to shift classes
-                const rotateCarousel = () => {
-                    // Find current index of active
-                    const activeIndex = items.findIndex(item => item.classList.contains('active'));
-                    
-                    // Remove all state classes
-                    items.forEach(item => {
-                        item.classList.remove('active', 'next', 'prev', 'hidden');
+                // 1. Generate Dots
+                items.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if(index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        goToSlide(index);
                     });
+                    dotsContainer.appendChild(dot);
+                });
 
-                    // Calculate new indices (Looping)
-                    const nextActiveIndex = (activeIndex + 1) % items.length;
-                    const nextIndex = (nextActiveIndex + 1) % items.length;
-                    const hiddenIndex = (nextActiveIndex + 2) % items.length;
-                    const prevIndex = (nextActiveIndex + 3) % items.length; // or -1
+                const updateClasses = () => {
+                    // Reset all items
+                    items.forEach(item => item.classList.remove('active', 'next', 'prev', 'hidden'));
+                    
+                    // Indices
+                    const nextIndex = (activeIndex + 1) % items.length;
+                    const hiddenIndex = (activeIndex + 2) % items.length;
+                    const prevIndex = (activeIndex + 3) % items.length; // Assumes 4 items
 
                     // Apply classes
-                    items[nextActiveIndex].classList.add('active');
+                    items[activeIndex].classList.add('active');
                     items[nextIndex].classList.add('next');
                     items[hiddenIndex].classList.add('hidden');
                     items[prevIndex].classList.add('prev');
+                    
+                    // Update dots
+                    const dots = dotsContainer.querySelectorAll('.dot');
+                    dots.forEach(d => d.classList.remove('active'));
+                    dots[activeIndex].classList.add('active');
                 };
 
-                // Auto rotate every 3 seconds
-                let interval = setInterval(rotateCarousel, 3000);
+                const rotate = (direction = 1) => {
+                    if (direction === 1) {
+                        activeIndex = (activeIndex + 1) % items.length;
+                    } else {
+                        activeIndex = (activeIndex - 1 + items.length) % items.length;
+                    }
+                    updateClasses();
+                };
 
-                // Pause on hover
-                container.addEventListener('mouseenter', () => clearInterval(interval));
-                container.addEventListener('mouseleave', () => interval = setInterval(rotateCarousel, 3000));
+                const goToSlide = (index) => {
+                    activeIndex = index;
+                    updateClasses();
+                    // Reset timer to give user time to look at new slide
+                    resetTimer();
+                };
+
+                // Timer Management
+                const startTimer = () => {
+                    clearInterval(interval);
+                    // Use slow speed if interacting, fast speed if not
+                    const speed = isInteracting ? SLOW_INTERVAL : FAST_INTERVAL;
+                    interval = setInterval(() => rotate(1), speed);
+                };
                 
-                // Pause on touch
-                container.addEventListener('touchstart', () => clearInterval(interval));
-                container.addEventListener('touchend', () => interval = setInterval(rotateCarousel, 3000));
+                const resetTimer = () => {
+                    startTimer();
+                };
+
+                // Interaction Events (Mouse/Touch)
+                const onInteractStart = () => {
+                    isInteracting = true;
+                    startTimer(); // Switch to slow interval
+                };
+                
+                const onInteractEnd = () => {
+                    isInteracting = false;
+                    startTimer(); // Switch back to fast interval
+                };
+
+                // Desktop Hover
+                container.addEventListener('mouseenter', onInteractStart);
+                container.addEventListener('mouseleave', onInteractEnd);
+                
+                // Touch/Swipe Logic
+                let startX = 0;
+                container.addEventListener('touchstart', (e) => {
+                    onInteractStart();
+                    startX = e.touches[0].clientX;
+                });
+                
+                container.addEventListener('touchend', (e) => {
+                    onInteractEnd();
+                    const endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    // Detect swipe (threshold 50px)
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            rotate(1); // Swipe Left -> Next
+                        } else {
+                            rotate(-1); // Swipe Right -> Prev
+                        }
+                        resetTimer();
+                    }
+                });
+
+                // Start initial rotation
+                startTimer();
             });
         }
 
-        // Initialize on page load
         window.addEventListener('DOMContentLoaded', () => {
             updateVideoSource();
             initScrollObserver();
