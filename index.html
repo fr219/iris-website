@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris - Your Personalised Growth Pathway</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="showSection('home')">🌸 Iris</div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="showSection('home')" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="#how-it-works" onclick="showSection('how-it-works')" data-en="How It Works" data-ar="كيف يعمل">How It Works</a></li>
+                <li><a href="#about-us" onclick="showSection('about-us')" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                <li><button class="lang-switch" onclick="toggleLanguage()" id="langBtn">العربية</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="page-section active" id="home">
+        <div class="hero">
+            <div class="hero-content fade-in">
+                <div class="hero-text">
+                    <h1 data-en="Welcome to <span class='gradient-text'>Iris</span>" data-ar="مرحباً بك في <span class='gradient-text'>إيريس</span>">
+                        Welcome to <span class="gradient-text">Iris</span>
+                    </h1>
+                    <h2 style="font-size: 2rem; margin-bottom: 1rem;" data-en="Your Personalised Growth Pathway" data-ar="مسارك الشخصي للنمو">
+                        Your Personalised Growth Pathway
+                    </h2>
+                    <p data-en="A handshake between psychological theories and Artificial Intelligence, supported by gamification and adaptive systems. Minimize the limitations of one-size-fits-all solutions and bridge the gap between engagement sustainability, skills development, and goal achievement." 
+                       data-ar="لقاء بين النظريات النفسية والذكاء الاصطناعي، مدعوم بالألعاب والأنظمة التكيفية. تقليل قيود الحلول العامة وسد الفجوة بين استدامة التفاعل وتطوير المهارات وتحقيق الأهداف.">
+                        A handshake between psychological theories and Artificial Intelligence, supported by gamification and adaptive systems. Minimize the limitations of one-size-fits-all solutions and bridge the gap between engagement sustainability, skills development, and goal achievement.
+                    </p>
+                    <button class="cta-button" onclick="showSection('how-it-works')" data-en="Learn How Iris Works" data-ar="تعرف على كيفية عمل إيريس">
+                        Learn How Iris Works
+                    </button>
+                </div>
+                <div class="hero-visual">
+                    <div class="video-placeholder" id="videoContainer">
+                        <div class="play-button" onclick="playVideo()"></div>
+                        <video id="pitchVideo" style="display: none; width: 100%; height: 100%; border-radius: 20px;" controls>
+                            <source id="videoSource" src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section fade-in">
+            <h2 class="section-title" data-en="About Iris" data-ar="عن إيريس">About Iris</h2>
+            <p class="section-subtitle" data-en="The iris flower represents faith, courage, and wisdom" data-ar="زهرة السوسن ترمز إلى الإيمان والشجاعة والحكمة">
+                The iris flower represents faith, courage, and wisdom
+            </p>
+            <div class="about-content">
+                <p data-en="Our product's name and logo, the iris flower, was chosen due to its wide range of different colors and its symbolism of faith, courage, and wisdom to represent its users' individual differences, their unique strengths and weaknesses, and their journey towards growth and improvement." 
+                   data-ar="تم اختيار اسم منتجنا وشعاره، زهرة السوسن، نظرًا لمجموعتها الواسعة من الألوان المختلفة ورمزيتها للإيمان والشجاعة والحكمة لتمثيل الاختلافات الفردية للمستخدمين ونقاط قوتهم وضعفهم الفريدة ورحلتهم نحو النمو والتحسين.">
+                    Our product's name and logo, the iris flower, was chosen due to its wide range of different colors and its symbolism of faith, courage, and wisdom to represent its users' individual differences, their unique strengths and weaknesses, and their journey towards growth and improvement.
+                </p>
+                <p data-en="Personal development is a continuous improvement process aimed to foster a person's potential and capabilities in various areas of life such as career, physical health, and emotional well-being. There are many tools and solutions built to help people manage the process; however, many tend to lose engagement and drop them within a week." 
+                   data-ar="التطوير الشخصي هو عملية تحسين مستمرة تهدف إلى تعزيز إمكانات الشخص وقدراته في مختلف مجالات الحياة مثل المهنة والصحة البدنية والرفاهية العاطفية. هناك العديد من الأدوات والحلول المصممة لمساعدة الناس على إدارة العملية؛ ومع ذلك، يميل الكثيرون إلى فقدان الاهتمام والتخلي عنها في غضون أسبوع.">
+                    Personal development is a continuous improvement process aimed to foster a person's potential and capabilities in various areas of life such as career, physical health, and emotional well-being. There are many tools and solutions built to help people manage the process; however, many tend to lose engagement and drop them within a week.
+                </p>
+                <p data-en="For a solution or a plan or a program to sustain engagement and work best, it needs to give a person a sense of <span class='highlight'>autonomy, competence, and relatedness</span>. But if that looks different for each person, can generic, one-size-fits-all solutions work?" 
+                   data-ar="لكي يحافظ حل أو خطة أو برنامج على المشاركة ويعمل بشكل أفضل، يحتاج إلى منح الشخص إحساسًا بـ <span class='highlight'>الاستقلالية والكفاءة والترابط</span>. ولكن إذا كان ذلك يبدو مختلفًا لكل شخص، فهل يمكن أن تعمل الحلول العامة الموحدة؟">
+                    For a solution or a plan or a program to sustain engagement and work best, it needs to give a person a sense of <span class="highlight">autonomy, competence, and relatedness</span>. But if that looks different for each person, can generic, one-size-fits-all solutions work?
+                </p>
+                <p data-en="<span class='highlight'>Iris</span> is not only flexible enough to fit anyone, but it is also flexible enough to fit any use case. Aside from personal use, Iris can be integrated to enhance effectiveness of educational, training, and skills development programs in institutes and centers." 
+                   data-ar="<span class='highlight'>إيريس</span> ليس مرنًا بما يكفي ليناسب أي شخص فحسب، بل هو أيضًا مرن بما يكفي ليناسب أي حالة استخدام. بصرف النظر عن الاستخدام الشخصي، يمكن دمج إيريس لتعزيز فعالية البرامج التعليمية والتدريبية وتطوير المهارات في المعاهد والمراكز.">
+                    <span class="highlight">Iris</span> is not only flexible enough to fit anyone, but it is also flexible enough to fit any use case. Aside from personal use, Iris can be integrated to enhance effectiveness of educational, training, and skills development programs in institutes and centers.
+                </p>
+            </div>
+        </div>
+
+        <div class="use-cases">
+            <h2 class="section-title" data-en="Flexible for Any Use Case" data-ar="مرن لأي حالة استخدام">Flexible for Any Use Case</h2>
+            <div class="use-cases-grid">
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">👤</div>
+                    <h3 data-en="Personal Development" data-ar="التطوير الشخصي">Personal Development</h3>
+                    <p data-en="Achieve your personal goals with customized pathways" data-ar="حقق أهدافك الشخصية من خلال مسارات مخصصة">Achieve your personal goals with customized pathways</p>
+                </div>
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">🎓</div>
+                    <h3 data-en="Educational Programs" data-ar="البرامج التعليمية">Educational Programs</h3>
+                    <p data-en="Enhance learning effectiveness in institutes" data-ar="تعزيز فعالية التعلم في المعاهد">Enhance learning effectiveness in institutes</p>
+                </div>
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">💼</div>
+                    <h3 data-en="Organizational Development" data-ar="التطوير التنظيمي">Organizational Development</h3>
+                    <p data-en="Boost project management and team growth" data-ar="تعزيز إدارة المشاريع ونمو الفريق">Boost project management and team growth</p>
+                </div>
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">👥</div>
+                    <h3 data-en="Human Resources" data-ar="الموارد البشرية">Human Resources</h3>
+                    <p data-en="Employee assessments, analytics, and development" data-ar="تقييمات الموظفين والتحليلات والتطوير">Employee assessments, analytics, and development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="page-section" id="how-it-works">
+        <div class="how-it-works">
+            <h2 class="section-title" data-en="How Iris Works" data-ar="كيف يعمل إيريس">How Iris Works</h2>
+            <p class="section-subtitle" data-en="A seamless journey tailored to your growth" data-ar="رحلة سلسة مصممة خصيصًا لنموك">A seamless journey tailored to your growth</p>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-number">1</div>
+                    <h3 data-en="Basic Features" data-ar="الميزات الأساسية">Basic Features</h3>
+                    <p data-en="Start your journey with seamless onboarding" data-ar="ابدأ رحلتك بتأهيل سلس">Start your journey with seamless onboarding</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li data-en="Multi-language support (English & Arabic)" data-ar="دعم متعدد اللغات (الإنجليزية والعربية)">Multi-language support (English & Arabic)</li>
+                            <li data-en="Age confirmation for personalized experience" data-ar="تأكيد العمر لتجربة شخصية">Age confirmation for personalized experience</li>
+                            <li data-en="Smooth onboarding process" data-ar="عملية تأهيل سلسة">Smooth onboarding process</li>
+                            <li data-en="Secure authentication" data-ar="مصادقة آمنة">Secure authentication</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Gallery for Basic Features -->
+                    <div class="feature-gallery">
+                        <h4 class="gallery-title" data-en="📱 App Screenshots" data-ar="📱 لقطات التطبيق">📱 App Screenshots</h4>
+                        <div class="gallery-container">
+                            <div class="gallery-main" id="gallery-main-1">
+                                <span class="gallery-placeholder">📱</span>
+                                <img id="gallery-img-1" src="" alt="App Screenshot" style="display: none;">
+                            </div>
+                            <div class="gallery-thumbnails" id="gallery-thumbs-1">
+                                <!-- Thumbnails will be added here -->
+                                <div class="thumbnail active" onclick="changeImage(1, 0, 'screenshots/basic/language.png')">
+                                    <span class="thumbnail-placeholder">🌐</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(1, 1, 'screenshots/basic/age-confirmation.png')">
+                                    <span class="thumbnail-placeholder">✓</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(1, 2, 'screenshots/basic/onboarding.png')">
+                                    <span class="thumbnail-placeholder">👋</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(1, 3, 'screenshots/basic/authentication.png')">
+                                    <span class="thumbnail-placeholder">🔐</span>
+                                </div>
+                            </div>
+                            <div class="gallery-counter">
+                                <span data-en="Tap thumbnails to view screens" data-ar="اضغط على الصور المصغرة لعرض الشاشات">Tap thumbnails to view screens</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-number">2</div>
+                    <h3 data-en="Getting to Know You" data-ar="التعرف عليك">Getting to Know You</h3>
+                    <p data-en="Comprehensive personality assessment for accurate insights" data-ar="تقييم شامل للشخصية للحصول على رؤى دقيقة">Comprehensive personality assessment for accurate insights</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li data-en="NEO personality test based on Big 5 framework" data-ar="اختبار شخصية NEO بناءً على إطار عمل Big 5">NEO personality test based on Big 5 framework</li>
+                            <li data-en="Validated tool for reliable trait measurement" data-ar="أداة تم التحقق منها لقياس السمات الموثوقة">Validated tool for reliable trait measurement</li>
+                            <li data-en="Accurate behavior prediction" data-ar="التنبؤ الدقيق بالسلوك">Accurate behavior prediction</li>
+                            <li data-en="Personalized results and insights" data-ar="نتائج ورؤى شخصية">Personalized results and insights</li>
+                            <li data-en="Goal setting aligned with your personality" data-ar="تحديد الأهداف بما يتماشى مع شخصيتك">Goal setting aligned with your personality</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Gallery for Personality Test -->
+                    <div class="feature-gallery">
+                        <h4 class="gallery-title" data-en="📱 App Screenshots" data-ar="📱 لقطات التطبيق">📱 App Screenshots</h4>
+                        <div class="gallery-container">
+                            <div class="gallery-main" id="gallery-main-2">
+                                <span class="gallery-placeholder">📱</span>
+                                <img id="gallery-img-2" src="" alt="App Screenshot" style="display: none;">
+                            </div>
+                            <div class="gallery-thumbnails" id="gallery-thumbs-2">
+                                <div class="thumbnail active" onclick="changeImage(2, 0, 'screenshots/personality/test-intro.png')">
+                                    <span class="thumbnail-placeholder">📋</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(2, 1, 'screenshots/personality/test-questions.png')">
+                                    <span class="thumbnail-placeholder">❓</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(2, 2, 'screenshots/personality/test-results.png')">
+                                    <span class="thumbnail-placeholder">📊</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(2, 3, 'screenshots/personality/goal-setting.png')">
+                                    <span class="thumbnail-placeholder">🎯</span>
+                                </div>
+                            </div>
+                            <div class="gallery-counter">
+                                <span data-en="Tap thumbnails to view screens" data-ar="اضغط على الصور المصغرة لعرض الشاشات">Tap thumbnails to view screens</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-number">3</div>
+                    <h3 data-en="Core Application" data-ar="التطبيق الأساسي">Core Application</h3>
+                    <p data-en="Your personalized growth hub with dynamic features" data-ar="مركز النمو الشخصي الخاص بك مع ميزات ديناميكية">Your personalized growth hub with dynamic features</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li data-en="Interactive Home page with progress tracking" data-ar="الصفحة الرئيسية التفاعلية مع تتبع التقدم">Interactive Home page with progress tracking</li>
+                            <li data-en="Skills tree visualization (multiple views)" data-ar="تصور شجرة المهارات (عروض متعددة)">Skills tree visualization (multiple views)</li>
+                            <li data-en="Gamified learning experience" data-ar="تجربة تعلم مُلعَّبة">Gamified learning experience</li>
+                            <li data-en="Adaptive pathways based on your progress" data-ar="مسارات تكيفية بناءً على تقدمك">Adaptive pathways based on your progress</li>
+                            <li data-en="Real-time feedback and recommendations" data-ar="ردود فعل وتوصيات فورية">Real-time feedback and recommendations</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Gallery for Core App -->
+                    <div class="feature-gallery">
+                        <h4 class="gallery-title" data-en="📱 App Screenshots" data-ar="📱 لقطات التطبيق">📱 App Screenshots</h4>
+                        <div class="gallery-container">
+                            <div class="gallery-main" id="gallery-main-3">
+                                <span class="gallery-placeholder">📱</span>
+                                <img id="gallery-img-3" src="" alt="App Screenshot" style="display: none;">
+                            </div>
+                            <div class="gallery-thumbnails" id="gallery-thumbs-3">
+                                <div class="thumbnail active" onclick="changeImage(3, 0, 'screenshots/core/home-page.png')">
+                                    <span class="thumbnail-placeholder">🏠</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(3, 1, 'screenshots/core/skills-tree-view1.png')">
+                                    <span class="thumbnail-placeholder">🌳</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(3, 2, 'screenshots/core/skills-tree-view2.png')">
+                                    <span class="thumbnail-placeholder">🗺️</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(3, 3, 'screenshots/core/progress-tracking.png')">
+                                    <span class="thumbnail-placeholder">📈</span>
+                                </div>
+                            </div>
+                            <div class="gallery-counter">
+                                <span data-en="Tap thumbnails to view screens" data-ar="اضغط على الصور المصغرة لعرض الشاشات">Tap thumbnails to view screens</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-number">4</div>
+                    <h3 data-en="Profile & Settings" data-ar="الملف الشخصي والإعدادات">Profile & Settings</h3>
+                    <p data-en="Full control over your experience and preferences" data-ar="تحكم كامل في تجربتك وتفضيلاتك">Full control over your experience and preferences</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li data-en="Comprehensive user profile" data-ar="ملف مستخدم شامل">Comprehensive user profile</li>
+                            <li data-en="Customizable settings and preferences" data-ar="إعدادات وتفضيلات قابلة للتخصيص">Customizable settings and preferences</li>
+                            <li data-en="Progress history and achievements" data-ar="سجل التقدم والإنجازات">Progress history and achievements</li>
+                            <li data-en="Privacy and security controls" data-ar="ضوابط الخصوصية والأمان">Privacy and security controls</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Gallery for Profile & Settings -->
+                    <div class="feature-gallery">
+                        <h4 class="gallery-title" data-en="📱 App Screenshots" data-ar="📱 لقطات التطبيق">📱 App Screenshots</h4>
+                        <div class="gallery-container">
+                            <div class="gallery-main" id="gallery-main-4">
+                                <span class="gallery-placeholder">📱</span>
+                                <img id="gallery-img-4" src="" alt="App Screenshot" style="display: none;">
+                            </div>
+                            <div class="gallery-thumbnails" id="gallery-thumbs-4">
+                                <div class="thumbnail active" onclick="changeImage(4, 0, 'screenshots/profile/profile-page.png')">
+                                    <span class="thumbnail-placeholder">👤</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(4, 1, 'screenshots/profile/settings-page.png')">
+                                    <span class="thumbnail-placeholder">⚙️</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(4, 2, 'screenshots/profile/achievements.png')">
+                                    <span class="thumbnail-placeholder">🏆</span>
+                                </div>
+                                <div class="thumbnail" onclick="changeImage(4, 3, 'screenshots/profile/privacy.png')">
+                                    <span class="thumbnail-placeholder">🔒</span>
+                                </div>
+                            </div>
+                            <div class="gallery-counter">
+                                <span data-en="Tap thumbnails to view screens" data-ar="اضغط على الصور المصغرة لعرض الشاشات">Tap thumbnails to view screens</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="page-section" id="about-us">
+        <div class="about-us">
+            <h2 class="section-title" data-en="Meet the Team Behind Iris" data-ar="تعرف على الفريق وراء إيريس">Meet the Team Behind Iris</h2>
+            <div class="team-message">
+                <p data-en="Three beautiful genius sisters dedicated to transforming personal development through innovation, psychology, and technology. United by a vision to empower individuals on their unique growth journeys." 
+                   data-ar="ثلاث أخوات عبقريات جميلات مكرسات لتحويل التطوير الشخصي من خلال الابتكار وعلم النفس والتكنولوجيا. متحدات برؤية لتمكين الأفراد في رحلات نموهم الفريدة.">
+                    Three beautiful genius sisters dedicated to transforming personal development through innovation, psychology, and technology. United by a vision to empower individuals on their unique growth journeys.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Iris - Your Personalised Growth Pathway. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>
