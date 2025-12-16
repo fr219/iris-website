@@ -13,15 +13,23 @@
         }
 
         :root {
-            --iris-purple: #6B4DE6;
-            --iris-light: #9D7FEA;
-            --iris-dark: #4A2FB8;
-            --iris-accent: #B8A1F0;
-            --gradient-1: linear-gradient(135deg, #6B4DE6 0%, #9D7FEA 100%);
-            --gradient-2: linear-gradient(135deg, #4A2FB8 0%, #6B4DE6 100%);
-            --text-dark: #2D1B69;
-            --text-light: #F8F7FF;
-        }
+  --iris-pink: #F6A3C7;
+  --iris-lavender: #D88ACB;
+  --iris-purple: #B88AD9;
+  --iris-periwinkle: #8FA1E3;
+
+  --iris-outline: #5f4ba6;
+  --iris-dark: #8a5cab;
+
+  --iris-gold: #F4A340;
+  --iris-gold-soft: #F7C27A;
+
+  --text-dark: #281665;
+  --text-light: #FFFFFF;
+
+  --gradient-1: linear-gradient(135deg, #F6A3C7, #B88AD9, #8FA1E3);
+  --gradient-2: linear-gradient(135deg, #834ba6, #633e8f);
+}
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -42,14 +50,14 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1.2rem 5%;
-            box-shadow: 0 2px 20px rgba(107, 77, 230, 0.1);
+            box-shadow: 0 2px 20px rgba(166, 77, 230, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
             padding: 0.8rem 5%;
-            box-shadow: 0 4px 30px rgba(107, 77, 230, 0.2);
+            box-shadow: 0 4px 30px rgba(166, 77, 230, 0.2);
         }
 
         .nav-container {
@@ -61,8 +69,8 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-family: "Lucida Handwriting", cursive;
+            font-size: 3rem;
             font-weight: 700;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -107,7 +115,7 @@
         }
 
         .lang-switch {
-            background: var(--gradient-1);
+            background: var(--iris-purple);
             color: white;
             border: none;
             padding: 0.6rem 1.5rem;
@@ -115,12 +123,12 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(107, 77, 230, 0.3);
+            box-shadow: 0 4px 15px rgba(166, 77, 230, 0.3);
         }
 
         .lang-switch:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(107, 77, 230, 0.4);
+            box-shadow: 0 6px 20px rgba(161, 77, 230, 0.4);
         }
 
         /* Hero Section */
@@ -139,7 +147,7 @@
             position: absolute;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(107, 77, 230, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(159, 77, 230, 0.1) 0%, transparent 70%);
             top: -200px;
             right: -200px;
             animation: float 6s ease-in-out infinite;
@@ -172,6 +180,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-family: "Lucida Handwriting", cursive;
         }
 
         .hero-text p {
@@ -183,7 +192,7 @@
 
         .cta-button {
             display: inline-block;
-            background: var(--gradient-1);
+            background: var(--iris-purple);
             color: white;
             padding: 1rem 3rem;
             border-radius: 50px;
@@ -198,7 +207,7 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(107, 77, 230, 0.4);
+            box-shadow: 0 15px 40px rgba(154, 77, 230, 0.4);
         }
 
         .hero-visual {
@@ -208,12 +217,12 @@
         .video-placeholder {
             width: 100%;
             aspect-ratio: 16/9;
-            background: var(--gradient-2);
+            background: var(--gradient-1);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 20px 60px rgba(107, 77, 230, 0.3);
+            box-shadow: 0 20px 60px rgba(154, 77, 230, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -274,7 +283,7 @@
             background: white;
             padding: 3rem;
             border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(107, 77, 230, 0.1);
+            box-shadow: 0 20px 60px rgba(169, 77, 230, 0.1);
             line-height: 1.8;
             font-size: 1.1rem;
         }
@@ -350,7 +359,7 @@
             font-size: 8rem;
             line-height: 0.8;
             font-weight: 900;
-            background: linear-gradient(135deg, rgba(107, 77, 230, 0.1) 0%, rgba(157, 127, 234, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(156, 77, 230, 0.1) 0%, rgba(157, 127, 234, 0.05) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -450,8 +459,8 @@
             height: 520px;
             background: white;
             border-radius: 24px;
-            border: 6px solid #2D1B69;
-            box-shadow: 0 20px 50px rgba(45, 27, 105, 0.2);
+            border: 6px solid #471b69;
+            box-shadow: 0 20px 50px rgba(66, 27, 105, 0.2);
             overflow: hidden;
             transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             display: flex;
@@ -486,7 +495,7 @@
             transform: translateX(0) scale(1.1);
             opacity: 1;
             z-index: 10;
-            box-shadow: 0 25px 60px rgba(107, 77, 230, 0.3);
+            box-shadow: 0 25px 60px rgba(159, 77, 230, 0.3);
             border-color: var(--iris-purple);
         }
 
@@ -541,50 +550,6 @@
             background: var(--iris-light);
         }
 
-        /* Use Cases Section */
-        .use-cases {
-            padding: 100px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .use-cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .use-case-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(107, 77, 230, 0.1);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .use-case-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .use-case-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(107, 77, 230, 0.2);
-        }
-
-        .use-case-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .use-case-card h3 {
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
 
         /* About Us Section */
         .about-us {
@@ -608,8 +573,10 @@
 
         /* Footer */
         footer {
-            background: var(--text-dark);
+            background: var(--gradient-1);
             color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
             padding: 3rem 5%;
             text-align: center;
         }
@@ -719,18 +686,23 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .img {
+  width: 70px;
+  height: auto;
+    border-radius: 50px;
+}
     </style>
 </head>
 <body>
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo" onclick="showSection('home')">🌸 Iris</div>
+            <div class="logo" onclick="showSection('home')"> <img src="logo.png" alt="Project logo" class="img"></div>
+            <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">العربية</button>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" onclick="showSection('home')" data-en="Home" data-ar="الرئيسية">Home</a></li>
                 <li><a href="#how-it-works" onclick="showSection('how-it-works')" data-en="How It Works" data-ar="كيف يعمل">How It Works</a></li>
                 <li><a href="#about-us" onclick="showSection('about-us')" data-en="About Us" data-ar="من نحن">About Us</a></li>
-                <li><button class="lang-switch" onclick="toggleLanguage()" id="langBtn">العربية</button></li>
             </ul>
         </div>
     </nav>
@@ -745,13 +717,6 @@
                     <h2 style="font-size: 2rem; margin-bottom: 1rem;" data-en="Your Personalised Growth Pathway" data-ar="مسارك الشخصي للنمو">
                         Your Personalised Growth Pathway
                     </h2>
-                    <p data-en="A handshake between psychological theories and Artificial Intelligence, supported by gamification and adaptive systems. Minimize the limitations of one-size-fits-all solutions and bridge the gap between engagement sustainability, skills development, and goal achievement." 
-                       data-ar="لقاء بين النظريات النفسية والذكاء الاصطناعي، مدعوم بالألعاب والأنظمة التكيفية. تقليل قيود الحلول العامة وسد الفجوة بين استدامة التفاعل وتطوير المهارات وتحقيق الأهداف.">
-                        A handshake between psychological theories and Artificial Intelligence, supported by gamification and adaptive systems. Minimize the limitations of one-size-fits-all solutions and bridge the gap between engagement sustainability, skills development, and goal achievement.
-                    </p>
-                    <button class="cta-button" onclick="showSection('how-it-works')" data-en="Learn How Iris Works" data-ar="تعرف على كيفية عمل إيريس">
-                        Learn How Iris Works
-                    </button>
                 </div>
                 <div class="hero-visual">
                     <div class="video-placeholder" id="videoContainer">
@@ -776,33 +741,22 @@
                    data-ar="التطوير الشخصي هو عملية تحسين مستمرة تهدف إلى تعزيز إمكانات الشخص وقدراته في مختلف مجالات الحياة مثل المهنة والصحة البدنية والرفاهية العاطفية. هناك العديد من الأدوات والحلول المصممة لمساعدة الناس على إدارة العملية؛ ومع ذلك، يميل الكثيرون إلى فقدان الاهتمام والتخلي عنها في غضون أسبوع.">
                     Personal development is a continuous improvement process aimed to foster a person's potential and capabilities in various areas of life such as career, physical health, and emotional well-being. There are many tools and solutions built to help people manage the process; however, many tend to lose engagement and drop them within a week.
                 </p>
+                 <p data-en="For a solution or a plan or a program to sustain engagement and work best, it needs to give a person a sense of autonomy, competence, and relatedness. But if that looks different for each person, can generic, one-size-fits-all solutions work? Surely, the answer cannot be producing 8 billion different solutions." >  
+                      For a solution or a plan or a program to sustain engagement and work best, it needs to give a person a sense of autonomy, competence, and relatedness. But if that looks different for each person, can generic, one-size-fits-all solutions work? Surely, the answer cannot be producing 8 billion different solutions.
+                    </p>
+                     <p data-en="“Could there be a way to tailor programs to fit anyone?”, a question that birthed our product, Iris, a handshake between psychological theories and Artificial Intelligence supported by gamification and adaptive systems theories. A system that aims to minimize the limitations of the one-size-fits-all approach of the current self-growth solutions bridging the gap between engagement sustainability, skills development, and goal achievement." >  
+                      “Could there be a way to tailor programs to fit anyone?”, a question that birthed our product, Iris, a handshake between psychological theories and Artificial Intelligence supported by gamification and adaptive systems theories. A system that aims to minimize the limitations of the one-size-fits-all approach of the current self-growth solutions bridging the gap between engagement sustainability, skills development, and goal achievement.
+                    </p>
+                     <p data-en="Iris is not only flexible enough to fit anyone, but it is also flexible enough to fit any use case. Aside from personal use, Iris can be integrated to enhance effectiveness of educational, training, and skills development programs in institutes and centers." >  
+                      Iris is not only flexible enough to fit anyone, but it is also flexible enough to fit any use case. Aside from personal use, Iris can be integrated to enhance effectiveness of educational, training, and skills development programs in institutes and centers. 
+                    </p>
+                     <p data-en="Scaling up a step, it can also boost organizational development such as by supporting project management. Moreover, additional features can be developed to evolve Iris into a useful human resources tool providing candidate assessments, reliable AI predictive analytics, insights on candidates and employees performance, and of course, employee development and engagement." >  
+                      Scaling up a step, it can also boost organizational development such as by supporting project management. Moreover, additional features can be developed to evolve Iris into a useful human resources tool providing candidate assessments, reliable AI predictive analytics, insights on candidates and employees performance, and of course, employee development and engagement.
+                    </p>
             </div>
-        </div>
-
-        <div class="use-cases">
-            <h2 class="section-title" data-en="Flexible for Any Use Case" data-ar="مرن لأي حالة استخدام">Flexible for Any Use Case</h2>
-            <div class="use-cases-grid">
-                <div class="use-case-card fade-in">
-                    <div class="use-case-icon">👤</div>
-                    <h3 data-en="Personal Development" data-ar="التطوير الشخصي">Personal Development</h3>
-                    <p data-en="Achieve your personal goals with customized pathways" data-ar="حقق أهدافك الشخصية من خلال مسارات مخصصة">Achieve your personal goals with customized pathways</p>
-                </div>
-                <div class="use-case-card fade-in">
-                    <div class="use-case-icon">🎓</div>
-                    <h3 data-en="Educational Programs" data-ar="البرامج التعليمية">Educational Programs</h3>
-                    <p data-en="Enhance learning effectiveness in institutes" data-ar="تعزيز فعالية التعلم في المعاهد">Enhance learning effectiveness in institutes</p>
-                </div>
-                <div class="use-case-card fade-in">
-                    <div class="use-case-icon">💼</div>
-                    <h3 data-en="Organizational Development" data-ar="التطوير التنظيمي">Organizational Development</h3>
-                    <p data-en="Boost project management and team growth" data-ar="تعزيز إدارة المشاريع ونمو الفريق">Boost project management and team growth</p>
-                </div>
-                <div class="use-case-card fade-in">
-                    <div class="use-case-icon">👥</div>
-                    <h3 data-en="Human Resources" data-ar="الموارد البشرية">Human Resources</h3>
-                    <p data-en="Employee assessments, analytics, and development" data-ar="تقييمات الموظفين والتحليلات والتطوير">Employee assessments, analytics, and development</p>
-                </div>
-            </div>
+            <button class="cta-button" onclick="showSection('how-it-works')" data-en="Learn How Iris Works" data-ar="تعرف على كيفية عمل إيريس">
+                        Learn How Iris Works
+                    </button>
         </div>
     </section>
 
@@ -986,7 +940,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Iris - Your Personalised Growth Pathway. All rights reserved.</p>
+            <p>&copy; 2025 Iris - Your Personalised Growth Pathway. All rights reserved.</p>
         </div>
     </footer>
 
