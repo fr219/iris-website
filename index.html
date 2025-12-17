@@ -564,11 +564,49 @@
             -webkit-text-fill-color: white;
         }
 
-        .team-message {
-            max-width: 800px;
+             /* Use Cases Section */
+        .use-cases {
+            padding: 100px 5%;
+            max-width: 1400px;
             margin: 0 auto;
-            font-size: 1.3rem;
-            line-height: 1.8;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .use-case-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(107, 77, 230, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .use-case-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(107, 77, 230, 0.2);
+        }
+
+        .use-case-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .use-case-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
         }
 
         /* Footer */
@@ -929,13 +967,37 @@
     <section class="page-section" id="about-us">
         <div class="about-us">
             <h2 class="section-title" data-en="Meet the Team Behind Iris" data-ar="تعرف على الفريق وراء إيريس">Meet the Team Behind Iris</h2>
-            <div class="team-message">
-                <p data-en="Three beautiful genius sisters dedicated to transforming personal development through innovation, psychology, and technology. United by a vision to empower individuals on their unique growth journeys." 
-                   data-ar="ثلاث أخوات عبقريات جميلات مكرسات لتحويل التطوير الشخصي من خلال الابتكار وعلم النفس والتكنولوجيا. متحدات برؤية لتمكين الأفراد في رحلات نموهم الفريدة.">
-                    Three beautiful genius sisters dedicated to transforming personal development through innovation, psychology, and technology. United by a vision to empower individuals on their unique growth journeys.
-                </p>
-            </div>
         </div>
+        <div class="about-content">
+                 <div class="use-cases">
+            <div class="use-cases-grid">
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">👤</div>
+                    <h3 data-en="Fatema AlRafaei" data-ar="">Fatema AlRafaei</h3>
+                    <p data-en="+973 3345 4010" data-ar="">+973 3345 4010</p>
+                    <p data-en="Email" data-ar="">Email</p>
+                    <p data-en="LinkedIn" data-ar="">LinkedIn</p>
+                    <p data-en="CV" data-ar="">CV</p>
+                </div>  
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">👤</div>
+                    <h3 data-en="Reem Alnaybari" data-ar="">Reem Alnaybari</h3>
+                    <p data-en="+973 3952 1727" data-ar="">+973 3952 1727</p>
+                    <p data-en="2003ra29@gmail.com" data-ar="">2003ra29@gmail.com</p>
+                    <p data-en="LinkedIn" data-ar="">LinkedIn</p>
+                    <p data-en="CV" data-ar="">CV</p>
+                </div>   
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">👤</div>
+                    <h3 data-en="Zainab Ali" data-ar="">Zainab Ali</h3>
+                    <p data-en="+973 6676 6034" data-ar="">+973 6676 6034</p>
+                    <p data-en="Email" data-ar="">Email</p>
+                    <p data-en="LinkedIn" data-ar="">LinkedIn</p>
+                    <p data-en="CV" data-ar="">CV</p>
+                </div>       
+            </div>
+
+            </div>
     </section>
 
     <footer>
