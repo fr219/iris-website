@@ -907,13 +907,12 @@
                     </h2>
                 </div>
                 <div class="hero-visual">
-                    <div class="video-placeholder" id="videoContainer">
-                        <div class="play-button" onclick="playVideo()"></div>
-                        <video id="pitchVideo" style="display: none; width: 100%; height: 100%; border-radius: 20px;" controls>
-                            <source id="videoSource" src="" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
+                    <div class="video-placeholder">
+                    <div class="play-button" onclick="playVideo(this)"></div>
+                    <video class="pitchVideo" data-role="pitch" style="display:none; width:100%; height:100%; border-radius:20px;" controls>
+                        <source type="video/mp4">
+                    </video>
+                </div>
                 </div>
             </div>
         </div>
@@ -1101,12 +1100,29 @@
                     </div>
                 </div>
             </div>
+            <div class="feature-row">
+                <div class="feature-container">
+                    <div class="feature-text-block">
+                        <h3 data-en="Video Demo" data-ar="عرض فيديو">Video Demo</h3>
+                         <div class="hero-visual">
+                    <div class="video-placeholder">
+                        <div class="play-button" onclick="playVideo(this)"></div>
+                        <video class="pitchVideo" style="display:none; width:100%; height:100%; border-radius:20px;" controls>
+                            <source src="./videos/demo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section class="page-section" id="about-us">
         <div class="about-us">
-            <h2 class="section-title" data-en="Meet the Team Behind Iris" data-ar="تعرف على الفريق وراء إيريس">Meet the Team Behind Iris</h2>
+            <!-- <h2 class="section-title" data-en="Meet the Team Behind Iris" data-ar="تعرف على الفريق وراء إيريس">Meet the Team Behind Iris</h2> -->
+            <h2 data-en="This project is a Final Year Senior Project completed during Semester 1 of the Academic Year 2025/2026 at the College of Information Technology — University of Bahrain." data-ar="هذا المشروع هو مشروع تخرج لطلاب السنة النهائية تم إنجازه خلال الفصل الدراسي الأول من العام الدراسي 2025/2026 في كلية تكنولوجيا المعلومات - جامعة البحرين.">This project is a Final Year Senior Project completed during Semester 1 of the Academic Year 2025/2026 at the College of Information Technology — University of Bahrain.</h3>
         </div>
         <div class="use-cases">
             <div class="use-cases-grid">
@@ -1170,26 +1186,30 @@
         };
 
         function updateVideoSource() {
-            const videoSource = document.getElementById('videoSource');
-            const pitchVideo = document.getElementById('pitchVideo');
-            videoSource.src = videoUrls[currentLang];
-            pitchVideo.load();
+        document.querySelectorAll('video[data-role="pitch"]').forEach(video => {
+            const source = video.querySelector('source');
+            source.src = videoUrls[currentLang];
+            video.load();
+        });
+    }
+
+
+        function playVideo(button) {
+        const container = button.parentElement;
+        const video = container.querySelector('video');
+        const source = video.querySelector('source');
+
+        if (video.dataset.role === 'pitch' && !source.src) {
+            source.src = videoUrls[currentLang];
+            video.load();
         }
 
-        function playVideo() {
-            const videoContainer = document.getElementById('videoContainer');
-            const playButton = videoContainer.querySelector('.play-button');
-            const pitchVideo = document.getElementById('pitchVideo');
+        button.style.display = 'none';
+        video.style.display = 'block';
+        video.play();
+    }
 
-            if (!document.getElementById('videoSource').src || 
-                document.getElementById('videoSource').src === '') {
-                updateVideoSource();
-            }
 
-            playButton.style.display = 'none';
-            pitchVideo.style.display = 'block';
-            pitchVideo.play();
-        }
 
         function toggleDarkMode() {
             darkMode = !darkMode;
@@ -1241,38 +1261,42 @@
         }
 
         function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            const body = document.body;
-            const langBtn = document.getElementById('langBtn');
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    const body = document.body;
+    const langBtn = document.getElementById('langBtn');
 
-            if (currentLang === 'ar') {
-                body.classList.add('rtl');
-                body.setAttribute('dir', 'rtl');
-                langBtn.textContent = 'English';
-            } else {
-                body.classList.remove('rtl');
-                body.setAttribute('dir', 'ltr');
-                langBtn.textContent = 'العربية';
-            }
+    if (currentLang === 'ar') {
+        body.classList.add('rtl');
+        body.setAttribute('dir', 'rtl');
+        langBtn.textContent = 'English';
+    } else {
+        body.classList.remove('rtl');
+        body.setAttribute('dir', 'ltr');
+        langBtn.textContent = 'العربية';
+    }
 
-            updateVideoSource();
+    // Update pitch video sources
+    updateVideoSource();
 
-            const pitchVideo = document.getElementById('pitchVideo');
-            const playButton = document.querySelector('.play-button');
-            if (pitchVideo.style.display === 'block') {
-                pitchVideo.pause();
-                pitchVideo.style.display = 'none';
-                playButton.style.display = 'flex';
-            }
+    // Reset ALL pitch videos safely
+    document.querySelectorAll('video[data-role="pitch"]').forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+        video.style.display = 'none';
 
-            const elements = document.querySelectorAll('[data-en]');
-            elements.forEach(element => {
-                const text = element.getAttribute(`data-${currentLang}`);
-                if (text) {
-                    element.innerHTML = text;
-                }
-            });
+        const playBtn = video.parentElement.querySelector('.play-button');
+        if (playBtn) playBtn.style.display = 'flex';
+    });
+
+    // Update all translatable text
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${currentLang}`);
+        if (text !== null) {
+            el.innerHTML = text;
         }
+    });
+}
+
 
         let observer;
         function initScrollObserver() {
